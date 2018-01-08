@@ -21,10 +21,17 @@ ParseInfo.prototype.resetKeysAndValues=function() {
   this.currentKey=this.currentValue=this.currentToken="";
 }
 
+ParseInfo.prototype.camalCase = function(currentKey) {
+  if(!currentKey.toUpperCase()) currentKey.toUpperCase();
+  currentKey.toLowerCase();
+}
+
 ParseInfo.prototype.pushKeyValuePair=function() {
+  let currentKey = this.camalCase(this.currentKey);
   this.parsedKeys[this.currentKey]=this.currentValue;
   this.resetKeysAndValues();
 }
+
 
 ParseInfo.prototype.endOfText=function() {
   if(this.currentToken!="") {
