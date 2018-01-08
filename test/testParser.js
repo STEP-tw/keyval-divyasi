@@ -134,22 +134,22 @@ describe("single values with quotes",function(){
 
   it("parse a single value with quotes",function(){
     let expected={key:"value"};
-    assert.deepEqual(expected,kvParser.parse("key=\"value\""));
+    assert.deepInclude(expected,kvParser.parse("key=\"value\""));
   });
 
   it("parse a single quoted value that has spaces in it",function(){
     let expected={key:"va lue"};
-    assert.deepEqual(expected,kvParser.parse("key=\"va lue\""));
+    assert.deepInclude(expected,kvParser.parse("key=\"va lue\""));
   });
 
   it("parse a single quoted value that has spaces in it and leading spaces",function(){
     let expected={key:"va lue"};
-    assert.deepEqual(expected,kvParser.parse("key=   \"va lue\""));
+    assert.deepInclude(expected,kvParser.parse("key=   \"va lue\""));
   });
 
   it("parse a single quoted value that has spaces in it and trailing spaces",function(){
     let expected={key:"va lue"};
-    assert.deepEqual(expected,kvParser.parse("key=\"va lue\"   "));
+    assert.deepInclude(expected,kvParser.parse("key=\"va lue\"   "));
   });
 });
 
